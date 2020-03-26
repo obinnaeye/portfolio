@@ -16,7 +16,6 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
-            window.open('mailto:obinnaeye@gmail.com?subject=subject&body=body');
             $.ajax({
                 url: "././mail/contact_me.php",
                 type: "POST",
