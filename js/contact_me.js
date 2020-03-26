@@ -16,6 +16,7 @@ $(function() {
             if (firstName.indexOf(' ') >= 0) {
                 firstName = name.split(' ').slice(0, -1).join(' ');
             }
+            window.open('mailto:obinnaeye@gmail.com?subject=subject&body=body');
             $.ajax({
                 url: "././mail/contact_me.php",
                 type: "POST",
@@ -40,13 +41,15 @@ $(function() {
                 },
                 error: function() {
                     // Fail message
-                    $('#success').html("<div class='alert alert-danger'>");
-                    $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
-                        .append("</button>");
-                    $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
-                    $('#success > .alert-danger').append('</div>');
-                    //clear all fields
-                    $('#contactForm').trigger("reset");
+                    subject = "Website Contact Form: " + name
+                    window.open('mailto:obinnaeye@gmail.com?subject='+subject+'&body='+message);
+                    // $('#success').html("<div class='alert alert-danger'>");
+                    // $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
+                    //     .append("</button>");
+                    // $('#success > .alert-danger').append("<strong>Sorry " + firstName + ", it seems that my mail server is not responding. Please try again later!");
+                    // $('#success > .alert-danger').append('</div>');
+                    // //clear all fields
+                    // $('#contactForm').trigger("reset");
                 },
             })
         },
